@@ -1,13 +1,47 @@
 /* eslint-disable max-len */
-import React from 'react';
-import Character from './characters/CharacterMain';
+import React, { Component } from 'react';
+import FuturamaCharacters from '../../containers/FuturamaCharacters';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import FuturamaDetail from '../../containers/FuturamaDetails';
 
-export default function App() {
-  return (
-    <Character
-      character="Bender"
-      quote="Bite my shiny metal ass."
-      image="https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png"
-    />
-  );
+class App extends Component {
+  render() {
+
+    return (
+      <Router>
+
+        <Switch>
+
+          <Route path="/" exact={true}
+            render={routerProps => (
+              <FuturamaCharacters {...routerProps} />
+            )}
+          />
+
+          <Route path="/character/:character" exact={true}
+            render={routerProps => (
+              <FuturamaDetail {...routerProps} />
+            )}
+          />
+
+
+          <Redirect to="/" />
+
+        </Switch>
+      </Router>
+    );
+  }
+
+
 }
+
+export default App;
+
+
+
+
