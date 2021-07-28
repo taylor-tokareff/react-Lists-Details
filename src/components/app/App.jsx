@@ -1,13 +1,47 @@
-import React from 'react';
-import Character from './characters/CharacterMain';
+/* eslint-disable max-len */
+import React, { Component } from 'react';
+import FuturamaCharacters from '../../containers/FuturamaCharacters';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import FuturamaDetail from '../../containers/FuturamaDetails';
 
-export default function App() {
-  return (
-    <Character
-      character="Bender"
-      species="Robot"
-      age="4-10"
-      planet="Earth"
-    />
-  );
+class App extends Component {
+  render() {
+
+    return (
+      <Router>
+
+        <Switch>
+
+          <Route path="/" exact={true}
+            render={routerProps => (
+              <FuturamaCharacters {...routerProps} />
+            )}
+          />
+
+          <Route path="/character/:character" exact={true}
+            render={routerProps => (
+              <FuturamaDetail {...routerProps} />
+            )}
+          />
+
+
+          <Redirect to="/" />
+
+        </Switch>
+      </Router>
+    );
+  }
+
+
 }
+
+export default App;
+
+
+
+

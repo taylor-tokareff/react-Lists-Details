@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Character from './CharacterMain';
 
 const CharacterList = ({ characters }) => {
   const characterElements = characters.map((character) => (
     <li key={character.id}>
-      <character
+      <Character
         character={character.character}
-        species={character.species}
-        age={character.age}
-        planet={character.planet}
+        quote={character.quote}
+        image={character.image}
+
       />
 
     </li>
@@ -24,9 +25,8 @@ const CharacterList = ({ characters }) => {
 CharacterList.propTypes = {
   characters: PropTypes.arrayOf(PropTypes.shape({
     character: PropTypes.string.isRequired,
-    species: PropTypes.string.isRequired,
-    age: PropTypes.string.isRequired,
-    planet: PropTypes.string.isRequired
+    quote: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   })).isRequired
 };
 

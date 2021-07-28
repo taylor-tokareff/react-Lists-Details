@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Character = ({ character, species, age, planet }) => (
-  <div>
+const Character = ({ character, quote, image }) => (
+  <figure>
+    <Link to={`/character/${character}`}>
+      <img src={image} />
+    </Link>
     <p>{character}</p>
-    <p>{species}</p>
-    <p>{age}</p>
-    <p>{planet}</p>
-  </div>
+    <p>{quote}</p>
+
+  </figure>
 );
 
 Character.propTypes = {
   character: PropTypes.string.isRequired,
-  species: PropTypes.string.isRequired,
-  age: PropTypes.string.isRequired,
-  planet: PropTypes.string.isRequired,
+  quote: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default Character;
