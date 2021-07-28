@@ -1,13 +1,17 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const Character = ({ species, age, planet }) => (
-  Species = 'Robot',
-  Age = '4-10',
-  Planet = 'Earth',
+const Character = ({ character, species, age, planet }) => (
+  <div>
+    <p>{character}</p>
+    <p>{species}</p>
+    <p>{age}</p>
+    <p>{planet}</p>
+  </div>
 );
 
 Character.propTypes = {
+  character: PropTypes.string.isRequired,
   species: PropTypes.string.isRequired,
   age: PropTypes.string.isRequired,
   planet: PropTypes.string.isRequired,
