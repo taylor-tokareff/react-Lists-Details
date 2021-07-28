@@ -1,5 +1,13 @@
 import React from 'react';
+import Character from './characters/CharacterMain';
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <Character
+      character="Bender"
+      species="Robot"
+      age="4-10"
+      planet="Earth"
+    />
+  );
 }
